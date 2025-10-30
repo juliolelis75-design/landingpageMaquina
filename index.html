@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transforme seu WhatsApp em uma Máquina de Vendas</title>
+    <title>Transforme seu WhatsApp em uma Máquina de Vendas | Automação com IA</title>
+    <meta name="description" content="Automatize seu WhatsApp com IA e aumente suas vendas em até 300%. Atendimento 24/7, totalmente humanizado.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -11,25 +15,39 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-color: #0066FF;
+            --primary-dark: #0052CC;
+            --secondary-color: #00D98E;
+            --secondary-dark: #00B875;
+            --accent-color: #FF6B35;
+            --dark-bg: #0A1628;
+            --light-bg: #F8FAFC;
+            --text-dark: #1E293B;
+            --text-light: #64748B;
+            --white: #FFFFFF;
+            --border-color: #E2E8F0;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: var(--text-dark);
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #0066cc 0%, #004c99 100%);
-            color: white;
-            padding: 100px 20px 120px;
-            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 120px 24px 140px;
             position: relative;
             overflow: hidden;
         }
@@ -38,356 +56,425 @@
             content: '';
             position: absolute;
             top: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
+            right: -10%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 8s ease-in-out infinite;
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-30px) scale(1.05); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.95);
+            color: var(--dark-bg);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
         }
 
         .hero h1 {
             font-size: 3.5em;
             font-weight: 800;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            position: relative;
-            z-index: 1;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
         }
 
-        .hero p {
-            font-size: 1.3em;
-            margin-bottom: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            position: relative;
-            z-index: 1;
+        .hero-subtitle {
+            font-size: 1.25em;
+            line-height: 1.6;
             opacity: 0.95;
+            margin-bottom: 32px;
+            font-weight: 400;
         }
 
-        .cta-buttons {
+        .hero-bonus {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 20px 32px;
+            margin: 32px auto 40px;
+            max-width: 600px;
+        }
+
+        .hero-bonus strong {
+            display: block;
+            font-size: 1.3em;
+            margin-bottom: 8px;
+        }
+
+        .hero-bonus small {
+            display: block;
+            font-size: 0.9em;
+            opacity: 0.8;
+            margin-top: 8px;
+        }
+
+        .cta-group {
             display: flex;
-            gap: 20px;
+            gap: 16px;
             justify-content: center;
             flex-wrap: wrap;
-            position: relative;
-            z-index: 1;
+            margin-top: 40px;
         }
 
         .btn {
-            padding: 18px 40px;
-            font-size: 1.1em;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 16px 32px;
+            font-size: 1.05em;
             font-weight: 600;
+            border-radius: 8px;
             text-decoration: none;
-            display: inline-block;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
         }
 
         .btn-primary {
-            background: #00d856;
-            color: white;
+            background: var(--secondary-color);
+            color: var(--dark-bg);
+            box-shadow: 0 4px 16px rgba(0, 217, 142, 0.3);
         }
 
         .btn-primary:hover {
-            background: #00b847;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,216,86,0.4);
+            background: var(--secondary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(0, 217, 142, 0.4);
         }
 
         .btn-secondary {
-            background: white;
-            color: #0066cc;
+            background: var(--white);
+            color: var(--primary-color);
         }
 
         .btn-secondary:hover {
-            background: #f0f0f0;
-            transform: translateY(-3px);
+            background: var(--light-bg);
+            transform: translateY(-2px);
         }
 
-        /* Diferenciais */
-        .diferenciais {
-            padding: 80px 20px;
-            background: #f8f9fa;
+        .btn svg {
+            width: 20px;
+            height: 20px;
         }
 
-        .diferenciais h2 {
+        /* Section Base */
+        section {
+            padding: 100px 24px;
+        }
+
+        .section-header {
             text-align: center;
+            max-width: 700px;
+            margin: 0 auto 64px;
+        }
+
+        .section-header h2 {
             font-size: 2.5em;
-            margin-bottom: 60px;
-            color: #0066cc;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
         }
 
-        .diferenciais-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+        .section-header p {
+            font-size: 1.15em;
+            color: var(--text-light);
         }
 
-        .diferencial-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            border-top: 4px solid #0066cc;
+        /* Features Grid */
+        .features {
+            background: var(--light-bg);
         }
 
-        .diferencial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0,102,204,0.15);
-        }
-
-        .diferencial-icon {
-            font-size: 3em;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .diferencial-card h3 {
-            color: #0066cc;
-            margin-bottom: 10px;
-            font-size: 1.3em;
-        }
-
-        /* Oferta Especial */
-        .oferta-especial {
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .oferta-especial::before {
-            content: '🎁';
-            position: absolute;
-            font-size: 15em;
-            opacity: 0.1;
-            top: -50px;
-            right: -50px;
-            animation: rotate 20s linear infinite;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .oferta-especial h2 {
-            font-size: 2.8em;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .oferta-destaque {
-            background: rgba(255,255,255,0.2);
-            padding: 30px;
-            border-radius: 15px;
-            display: inline-block;
-            margin: 20px 0;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255,255,255,0.3);
-        }
-
-        .oferta-destaque h3 {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-
-        /* Cases de Sucesso */
-        .cases {
-            padding: 80px 20px;
-            background: white;
-        }
-
-        .cases h2 {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 60px;
-            color: #0066cc;
-        }
-
-        .cases-grid {
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 32px;
         }
 
-        .case-card {
-            background: #f8f9fa;
-            padding: 35px;
-            border-radius: 15px;
-            border-left: 5px solid #00d856;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        .feature-card {
+            background: var(--white);
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
         }
 
-        .case-card::before {
-            content: '⭐⭐⭐⭐⭐';
-            display: block;
-            margin-bottom: 15px;
-            font-size: 1.2em;
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
         }
 
-        .case-card p {
-            font-style: italic;
-            margin-bottom: 15px;
-            font-size: 1.1em;
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25em;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
             line-height: 1.7;
         }
 
-        .case-author {
-            font-weight: 600;
-            color: #0066cc;
+        /* Offer Section */
+        .offer {
+            background: linear-gradient(135deg, var(--accent-color) 0%, #E85A2F 100%);
+            color: var(--white);
+            text-align: center;
         }
 
-        /* Formulário */
-        .formulario {
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #0066cc 0%, #004c99 100%);
-            color: white;
+        .offer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .offer h2 {
+            font-size: 2.8em;
+            font-weight: 800;
+            margin-bottom: 24px;
+        }
+
+        .offer-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 16px;
+            padding: 48px;
+            margin: 32px 0;
+        }
+
+        .offer-box h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .offer-box p {
+            font-size: 1.15em;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+        .testimonial-card {
+            background: var(--light-bg);
+            padding: 40px;
+            border-radius: 16px;
+            border-left: 4px solid var(--secondary-color);
+            position: relative;
+        }
+
+        .testimonial-stars {
+            color: #FFA500;
+            font-size: 1.2em;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-text {
+            font-size: 1.05em;
+            line-height: 1.7;
+            color: var(--text-dark);
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .testimonial-role {
+            font-size: 0.9em;
+            color: var(--text-light);
+        }
+
+        /* Urgency Section */
+        .urgency {
+            background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .urgency h2 {
+            font-size: 2.5em;
+            font-weight: 800;
+            margin-bottom: 24px;
+        }
+
+        .urgency p {
+            font-size: 1.2em;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Form Section */
+        .form-section {
+            background: var(--dark-bg);
+            color: var(--white);
         }
 
         .form-container {
             max-width: 600px;
             margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            background: var(--white);
+            padding: 48px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         }
 
         .form-container h2 {
-            color: #0066cc;
-            text-align: center;
-            margin-bottom: 30px;
+            color: var(--text-dark);
             font-size: 2em;
+            font-weight: 800;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .form-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 32px;
+            font-size: 1.05em;
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 24px;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 8px;
-            color: #333;
+            color: var(--text-dark);
             font-weight: 600;
+            font-size: 0.95em;
         }
 
         .form-group input {
             width: 100%;
-            padding: 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
+            padding: 14px 16px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
             font-size: 1em;
+            font-family: inherit;
             transition: all 0.3s ease;
         }
 
         .form-group input:focus {
             outline: none;
-            border-color: #0066cc;
-            box-shadow: 0 0 0 3px rgba(0,102,204,0.1);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.1);
         }
 
         .btn-submit {
             width: 100%;
-            padding: 18px;
-            background: #00d856;
-            color: white;
+            padding: 16px;
+            background: var(--secondary-color);
+            color: var(--dark-bg);
             border: none;
-            border-radius: 10px;
-            font-size: 1.2em;
-            font-weight: 600;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-family: inherit;
         }
 
         .btn-submit:hover {
-            background: #00b847;
+            background: var(--secondary-dark);
             transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(0,216,86,0.3);
+            box-shadow: 0 8px 24px rgba(0, 217, 142, 0.3);
         }
 
-        /* Demonstração */
-        .demonstracao {
-            padding: 80px 20px;
-            background: #f8f9fa;
+        .form-security {
             text-align: center;
+            color: var(--text-light);
+            margin-top: 16px;
+            font-size: 0.9em;
         }
 
-        .demonstracao h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: #0066cc;
-        }
-
-        .demonstracao p {
-            font-size: 1.2em;
-            margin-bottom: 40px;
-            color: #555;
-        }
-
-        .calendario-placeholder {
-            max-width: 700px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        }
-
-        /* Urgência */
-        .urgencia {
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #d32f2f 0%, #c62828 100%);
-            color: white;
+        #mensagemStatus {
+            margin-top: 16px;
+            padding: 16px;
+            border-radius: 8px;
+            display: none;
             text-align: center;
-        }
-
-        .urgencia h2 {
-            font-size: 2.5em;
-            margin-bottom: 30px;
-            line-height: 1.3;
-        }
-
-        .urgencia p {
-            font-size: 1.3em;
-            margin-bottom: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            font-weight: 600;
         }
 
         /* Footer */
         footer {
-            background: #1a1a1a;
-            color: white;
-            padding: 50px 20px 30px;
+            background: var(--dark-bg);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 64px 24px 32px;
         }
 
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 30px;
+            gap: 48px;
+            margin-bottom: 48px;
         }
 
         .footer-section h3 {
+            color: var(--white);
+            font-weight: 700;
             margin-bottom: 20px;
-            color: #00d856;
+            font-size: 1.1em;
         }
 
         .footer-section ul {
@@ -395,57 +482,100 @@
         }
 
         .footer-section ul li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .footer-section a {
-            color: #ccc;
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         .footer-section a:hover {
-            color: #00d856;
+            color: var(--secondary-color);
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #333;
-            color: #888;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
         }
 
-        /* Responsividade */
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 24px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.2em;
             }
 
-            .hero p {
+            .hero-subtitle {
                 font-size: 1.1em;
             }
 
-            .diferenciais h2, .cases h2, .demonstracao h2, .urgencia h2 {
+            .section-header h2 {
                 font-size: 2em;
             }
 
+            .cta-group {
+                flex-direction: column;
+            }
+
             .btn {
-                padding: 15px 30px;
-                font-size: 1em;
+                width: 100%;
             }
 
             .form-container {
-                padding: 25px;
+                padding: 32px 24px;
             }
-        }
 
-        .pulse {
-            animation: pulse 2s infinite;
+            section {
+                padding: 60px 24px;
+            }
         }
 
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.05); }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
         }
     </style>
 </head>
@@ -453,155 +583,388 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Transforme o seu WhatsApp em uma máquina de vendas</h1>
-            <p>Automatize seu WhatsApp com Inteligência Artificial e tenha um atendente 24h por dia, 7 dias por semana – totalmente humanizado e no estilo do seu negócio.</p>
-            <div class="cta-buttons">
-                <a href="#formulario" class="btn btn-primary pulse">Quero automatizar meu WhatsApp</a>
-                <a href="#demonstracao" class="btn btn-secondary">Agendar demonstração gratuita</a>
+            <div class="hero-content">
+                <div class="hero-badge">OFERTA EXCLUSIVA</div>
+                <h1>Transforme seu WhatsApp em uma Máquina de Vendas</h1>
+                <p class="hero-subtitle">Automatize seu atendimento com Inteligência Artificial e tenha um assistente 24/7, totalmente humanizado e personalizado para o seu negócio.</p>
+                
+                <div class="hero-bonus">
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 12px;">
+                        <svg style="width: 32px; height: 32px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 12V22H4V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22 7H2V12H22V7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 22V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 7H7.5C6.83696 7 6.20107 6.73661 5.73223 6.26777C5.26339 5.79893 5 5.16304 5 4.5C5 3.83696 5.26339 3.20107 5.73223 2.73223C6.20107 2.26339 6.83696 2 7.5 2C11 2 12 7 12 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 7H16.5C17.163 7 17.7989 6.73661 18.2678 6.26777C18.7366 5.79893 19 5.16304 19 4.5C19 3.83696 18.7366 3.20107 18.2678 2.73223C17.7989 2.26339 17.163 2 16.5 2C13 2 12 7 12 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <strong>BÔNUS EXCLUSIVO</strong>
+                        <svg style="width: 32px; height: 32px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 12V22H4V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22 7H2V12H22V7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 22V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 7H7.5C6.83696 7 6.20107 6.73661 5.73223 6.26777C5.26339 5.79893 5 5.16304 5 4.5C5 3.83696 5.26339 3.20107 5.73223 2.73223C6.20107 2.26339 6.83696 2 7.5 2C11 2 12 7 12 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 7H16.5C17.163 7 17.7989 6.73661 18.2678 6.26777C18.7366 5.79893 19 5.16304 19 4.5C19 3.83696 18.7366 3.20107 18.2678 2.73223C17.7989 2.26339 17.163 2 16.5 2C13 2 12 7 12 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <strong style="font-size: 1.4em;">60 dias de gestão de tráfego pago GRÁTIS</strong>
+                    Campanhas otimizadas para maximizar suas conversões
+                    <small>Consulte condições. Você investe apenas no budget dos anúncios.</small>
+                </div>
+
+                <div class="cta-group">
+                    <a href="#formulario" class="btn btn-primary pulse">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 11.5C21.0034 12.8199 20.6951 14.1219 20.1 15.3C19.3944 16.7117 18.3098 17.8992 16.9674 18.7293C15.6251 19.5594 14.0782 19.9994 12.5 20C11.1801 20.0035 9.87812 19.6951 8.7 19.1L3 21L4.9 15.3C4.30493 14.1219 3.99656 12.8199 4 11.5C4.00061 9.92176 4.44061 8.37485 5.27072 7.03255C6.10083 5.69025 7.28825 4.60557 8.7 3.89999C9.87812 3.30492 11.1801 2.99656 12.5 2.99999H13C15.0843 3.11502 17.053 3.99479 18.5291 5.47089C20.0052 6.94699 20.885 8.91568 21 11V11.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Quero automatizar agora
+                    </a>
+                    <a href="#formulario" class="btn btn-secondary">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 2V5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 2V5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M3.5 9.09H20.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M21 8.5V17C21 20 19.5 22 16 22H8C4.5 22 3 20 3 17V8.5C3 5.5 4.5 3.5 8 3.5H16C19.5 3.5 21 5.5 21 8.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Agendar demonstração
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Diferenciais -->
-    <section class="diferenciais">
+    <!-- Features Section -->
+    <section class="features" id="vantagens">
         <div class="container">
-            <h2>Por que escolher nossa automação?</h2>
-            <div class="diferenciais-grid">
-                <div class="diferencial-card">
-                    <span class="diferencial-icon">🕐</span>
+            <div class="section-header">
+                <h2>Por que escolher nossa automação?</h2>
+                <p>Tecnologia de ponta para transformar completamente seu atendimento</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
                     <h3>Atendimento 24/7</h3>
-                    <p>Nunca mais perca uma venda por estar fora do horário comercial.</p>
+                    <p>Nunca mais perca uma venda por estar fora do horário comercial. Seu cliente é atendido a qualquer hora, inclusive madrugadas e finais de semana.</p>
                 </div>
-                <div class="diferencial-card">
-                    <span class="diferencial-icon">🎭</span>
-                    <h3>Totalmente Humanizado</h3>
-                    <p>Atendimento com a cara e o tom do seu negócio, impossível perceber que é automático.</p>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>100% Humanizado</h3>
+                    <p>Conversa natural com o tom e personalidade do seu negócio. Seus clientes não perceberão que estão falando com uma IA.</p>
                 </div>
-                <div class="diferencial-card">
-                    <span class="diferencial-icon">📈</span>
-                    <h3>Maior Taxa de Conversão</h3>
-                    <p>Resposta imediata aumenta drasticamente suas chances de fechar negócio.</p>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23 6L13.5 15.5L8.5 10.5L1 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M17 6H23V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Até 300% Mais Conversões</h3>
+                    <p>Resposta imediata aumenta drasticamente suas taxas de conversão. Cliente satisfeito é cliente que compra.</p>
                 </div>
-                <div class="diferencial-card">
-                    <span class="diferencial-icon">⏱️</span>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
                     <h3>Economia de Tempo</h3>
-                    <p>Sua equipe foca no que realmente importa: fechar vendas qualificadas.</p>
+                    <p>Sua equipe para de responder perguntas repetitivas e foca em fechar vendas qualificadas e resolver casos complexos.</p>
                 </div>
-                <div class="diferencial-card">
-                    <span class="diferencial-icon">💰</span>
-                    <h3>Redução de Custos</h3>
-                    <p>Economize milhares sem precisar contratar mais atendentes.</p>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2V6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M12 18V22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M4.93 4.93L7.76 7.76" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M16.24 16.24L19.07 19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M2 12H6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M18 12H22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M4.93 19.07L7.76 16.24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M16.24 7.76L19.07 4.93" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Economize R$ 3.000+/mês</h3>
+                    <p>Substitui múltiplos atendentes. Sem férias, sem 13º, sem atrasos. Apenas resultados consistentes e previsíveis.</p>
                 </div>
-                <div class="diferencial-card">
-                    <span class="diferencial-icon">⚡</span>
-                    <h3>Respostas Instantâneas</h3>
-                    <p>Seu cliente não espera nem 1 segundo para ser atendido.</p>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Resposta Instantânea</h3>
+                    <p>Enquanto seu concorrente demora 10 minutos para responder, você já conquistou e está fechando o negócio.</p>
                 </div>
-                <div class="diferencial-card">
-                    <span class="diferencial-icon">📅</span>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M16 2V6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M8 2V6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M3 10H21" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
                     <h3>Agendamento Automático</h3>
-                    <p>Integração direta com Google Agenda para marcar compromissos.</p>
+                    <p>Integração direta com Google Agenda. Seus clientes agendam consultas e reuniões sem intermediários.</p>
                 </div>
-                <div class="diferencial-card">
-                    <span class="diferencial-icon">📊</span>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 11L12 14L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <h3>Organização Total</h3>
-                    <p>Histórico completo e leads organizados em tempo real.</p>
+                    <p>Todo histórico registrado, leads organizados automaticamente. Zero chance de esquecer ou perder informações importantes.</p>
                 </div>
-                <div class="diferencial-card">
-                    <span class="diferencial-icon">🚀</span>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <h3>Escalabilidade Infinita</h3>
-                    <p>Atende 10, 100 ou 1.000 clientes simultaneamente sem perder qualidade.</p>
+                    <p>Atende 1.000 pessoas simultaneamente sem perder qualidade. Crescimento sem limites para seu negócio.</p>
                 </div>
-                <div class="diferencial-card">
-                    <span class="diferencial-icon">🎓</span>
-                    <h3>Suporte Completo</h3>
-                    <p>Treinamento e acompanhamento para você dominar a ferramenta.</p>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C13.3132 2 14.6136 2.25866 15.8268 2.7612C17.0401 3.26375 18.1425 4.00035 19.0711 4.92893C19.9997 5.85752 20.7362 6.95991 21.2388 8.17317C21.7413 9.38642 22 10.6868 22 12C22 14.6522 20.9464 17.1957 19.0711 19.0711C17.1957 20.9464 14.6522 22 12 22C10.6868 22 9.38642 21.7413 8.17317 21.2388C6.95991 20.7362 5.85752 19.9997 4.92893 19.0711C3.00035 17.1957 2 14.6522 2 12C2 9.34784 3.00035 6.8043 4.92893 4.92893C6.8043 3.05357 9.34784 2 12 2Z" stroke="currentColor" stroke-width="2"/>
+                            <path d="M9.09 9C9.3251 8.33167 9.78915 7.76811 10.4 7.40913C11.0108 7.05016 11.7289 6.91894 12.4272 7.03871C13.1255 7.15849 13.7588 7.52152 14.2151 8.06353C14.6713 8.60553 14.9211 9.29152 14.92 10C14.92 12 11.92 13 11.92 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 17H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Suporte VIP Completo</h3>
+                    <p>Treinamento personalizado e acompanhamento contínuo. Estamos com você em cada etapa da jornada.</p>
                 </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 64px;">
+                <a href="#formulario" class="btn btn-primary">Começar agora</a>
             </div>
         </div>
     </section>
 
-    <!-- Oferta Especial -->
-    <section class="oferta-especial">
+    <!-- Offer Section -->
+    <section class="offer">
         <div class="container">
-            <h2>🎉 OFERTA EXCLUSIVA POR TEMPO LIMITADO 🎉</h2>
-            <div class="oferta-destaque">
-                <h3>60 DIAS DE TRÁFEGO PAGO GRÁTIS</h3>
-                <p style="font-size: 1.3em; margin-top: 15px;">Contrate agora e ganhe 60 dias de gestão de tráfego pago GRÁTIS!</p>
-                <p style="font-size: 1.1em; margin-top: 10px;">(Você arca apenas com o custo das campanhas)</p>
+            <div class="offer-content">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 32px;">
+                    <svg style="width: 48px; height: 48px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/>
+                        <path d="M12 6V12L16 14" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <h2 style="margin: 0;">Oferta Exclusiva - Vagas Limitadas</h2>
+                    <svg style="width: 48px; height: 48px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="offer-box">
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 20px;">
+                        <svg style="width: 40px; height: 40px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 12V22H4V12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22 7H2V12H22V7Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 22V7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 7H7.5C6.83696 7 6.20107 6.73661 5.73223 6.26777C5.26339 5.79893 5 5.16304 5 4.5C5 3.83696 5.26339 3.20107 5.73223 2.73223C6.20107 2.26339 6.83696 2 7.5 2C11 2 12 7 12 7Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 7H16.5C17.163 7 17.7989 6.73661 18.2678 6.26777C18.7366 5.79893 19 5.16304 19 4.5C19 3.83696 18.7366 3.20107 18.2678 2.73223C17.7989 2.26339 17.163 2 16.5 2C13 2 12 7 12 7Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <h3>60 DIAS DE TRÁFEGO PAGO GRÁTIS</h3>
+                    </div>
+                    <p>Contrate hoje e ganhe 60 dias de gestão profissional de tráfego pago completamente grátis.</p>
+                    <p>Campanhas otimizadas para maximizar seus resultados.</p>
+                    <p style="font-size: 0.95em; margin-top: 24px; opacity: 0.9;">*Você investe apenas no custo das campanhas (budget de anúncios)</p>
+                </div>
+                <a href="#formulario" class="btn btn-primary" style="font-size: 1.15em;">
+                    <svg style="width: 24px; height: 24px;" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 11L12 14L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Quero aproveitar esta oferta
+                </a>
+                <p style="margin-top: 24px; font-size: 1.05em;">
+                    <svg style="width: 20px; height: 20px; display: inline-block; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="white" stroke-width="2"/>
+                        <path d="M12 8V12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M12 16H12.01" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    Oferta válida apenas para os próximos 10 contratantes
+                </p>
             </div>
-            <a href="#formulario" class="btn btn-primary" style="margin-top: 30px; font-size: 1.2em;">QUERO APROVEITAR ESTA OFERTA</a>
         </div>
     </section>
 
-    <!-- Cases de Sucesso -->
-    <section class="cases">
+    <!-- Testimonials -->
+    <section class="testimonials" id="depoimentos">
         <div class="container">
-            <h2>O que nossos clientes dizem</h2>
-            <div class="cases-grid">
-                <div class="case-card">
-                    <p>"Em 30 dias conseguimos dobrar as conversões de WhatsApp com o atendimento automatizado!"</p>
-                    <div class="case-author">Maria S., Clínica de Estética</div>
+            <div class="section-header">
+                <h2>O que nossos clientes dizem</h2>
+                <p>Histórias reais de transformação e crescimento</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Em 30 dias conseguimos dobrar as conversões do WhatsApp com o atendimento automatizado. Meu faturamento aumentou 80% e a equipe está focada apenas em fechar as vendas mais complexas. A diferença foi imediata."</p>
+                    <div class="testimonial-author">Maria Silva</div>
+                    <div class="testimonial-role">Proprietária - Clínica de Estética Premium</div>
                 </div>
-                <div class="case-card">
-                    <p>"Economizamos mais de R$ 3 mil/mês em custos com atendentes"</p>
-                    <div class="case-author">João P., Auto Peças</div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Economizamos mais de R$ 3 mil por mês em custos com atendentes. O melhor é que a qualidade do atendimento melhorou significativamente e os clientes elogiam a rapidez e precisão nas respostas."</p>
+                    <div class="testimonial-author">João Pedro Santos</div>
+                    <div class="testimonial-role">Gerente Comercial - Auto Peças Paulista</div>
                 </div>
-                <div class="case-card">
-                    <p>"Hoje respondemos 100% dos clientes na hora, mesmo fora do expediente"</p>
-                    <div class="case-author">Carla M., Restaurante</div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Hoje respondemos 100% dos clientes imediatamente, mesmo às 2h da manhã. As vendas noturnas e de finais de semana triplicaram. Não consigo mais imaginar meu negócio sem essa automação."</p>
+                    <div class="testimonial-author">Carla Mendes</div>
+                    <div class="testimonial-role">Proprietária - Restaurante Sabor & Arte</div>
                 </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 64px;">
+                <a href="#formulario" class="btn btn-primary">Quero resultados como estes</a>
             </div>
         </div>
     </section>
 
-    <!-- Formulário -->
-    <section class="formulario" id="formulario">
+    <!-- Urgency Section -->
+    <section class="urgency">
+        <div class="container">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 32px;">
+                <svg style="width: 56px; height: 56px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 9v4" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M12 17h.01" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <h2 style="margin: 0;">Você está perdendo dinheiro agora mesmo</h2>
+            </div>
+            <p>
+                <svg style="width: 24px; height: 24px; display: inline-block; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="white" stroke-width="2"/>
+                    <path d="M12 6V12L16 14" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                Cada cliente que você não responde imediatamente é uma venda perdida para seu concorrente.
+            </p>
+            <p>
+                <svg style="width: 24px; height: 24px; display: inline-block; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                    <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Enquanto você lê isso, seu concorrente já está usando IA para responder instantaneamente e fechar mais vendas.
+            </p>
+            <p style="font-weight: 700; font-size: 1.3em; margin-top: 32px;">
+                <svg style="width: 28px; height: 28px; display: inline-block; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/>
+                    <path d="M15 9l-6 6m0-6l6 6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                Não deixe mais dinheiro na mesa.
+            </p>
+            <a href="#formulario" class="btn btn-primary" style="margin-top: 32px;">
+                <svg style="width: 24px; height: 24px;" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Quero parar de perder vendas agora
+            </a>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section" id="formulario">
         <div class="container">
             <div class="form-container">
-                <h2>Preencha abaixo para automatizar seu WhatsApp e aumentar suas vendas</h2>
+                <svg style="width: 64px; height: 64px; margin: 0 auto 24px; display: block;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 11.5C21.0034 12.8199 20.6951 14.1219 20.1 15.3C19.3944 16.7117 18.3098 17.8992 16.9674 18.7293C15.6251 19.5594 14.0782 19.9994 12.5 20C11.1801 20.0035 9.87812 19.6951 8.7 19.1L3 21L4.9 15.3C4.30493 14.1219 3.99656 12.8199 4 11.5C4.00061 9.92176 4.44061 8.37485 5.27072 7.03255C6.10083 5.69025 7.28825 4.60557 8.7 3.89999C9.87812 3.30492 11.1801 2.99656 12.5 2.99999H13C15.0843 3.11502 17.053 3.99479 18.5291 5.47089C20.0052 6.94699 20.885 8.91568 21 11V11.5Z" stroke="var(--secondary-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                
+                <h2>Fale com a gente no WhatsApp</h2>
+                <p class="form-subtitle">Preencha seus dados e inicie a conversa agora mesmo</p>
+                
                 <form id="leadForm">
                     <div class="form-group">
-                        <label for="nome">Nome Completo *</label>
-                        <input type="text" id="nome" name="nome" required>
+                        <label for="nome">
+                            <svg style="width: 16px; height: 16px; display: inline-block; vertical-align: middle; margin-right: 6px;" viewBox="0 0 24 24" fill="none">
+                                <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="var(--primary-color)" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="12" cy="7" r="4" stroke="var(--primary-color)" stroke-width="2"/>
+                            </svg>
+                            Nome
+                        </label>
+                        <input type="text" id="nome" name="nome" placeholder="Como podemos te chamar?" required>
                     </div>
+
                     <div class="form-group">
-                        <label for="whatsapp">WhatsApp *</label>
+                        <label for="whatsapp">
+                            <svg style="width: 16px; height: 16px; display: inline-block; vertical-align: middle; margin-right: 6px;" viewBox="0 0 24 24" fill="none">
+                                <path d="M22 16.92V19.92C22.0011 20.1985 21.9441 20.4742 21.8325 20.7293C21.7209 20.9845 21.5573 21.2136 21.3521 21.4019C21.1468 21.5901 20.9046 21.7335 20.6407 21.8227C20.3769 21.9119 20.0974 21.9451 19.82 21.92C16.7428 21.5856 13.787 20.5341 11.19 18.85C8.77382 17.3147 6.72533 15.2662 5.18999 12.85C3.49997 10.2412 2.44824 7.27099 2.11999 4.17999C2.095 3.90344 2.12787 3.62474 2.21649 3.3616C2.30512 3.09846 2.44756 2.85666 2.63476 2.65162C2.82196 2.44659 3.0498 2.28271 3.30379 2.1705C3.55777 2.05829 3.83233 2.00026 4.10999 1.99999H7.10999C7.5953 1.9952 8.06579 2.16705 8.43376 2.48351C8.80173 2.79996 9.04207 3.23945 9.10999 3.71999C9.23662 4.68007 9.47144 5.6227 9.80999 6.52999C9.94454 6.8879 9.97366 7.27689 9.8939 7.65086C9.81415 8.02482 9.62886 8.36809 9.35999 8.63999L8.08999 9.90999C9.51355 12.4135 11.5864 14.4864 14.09 15.91L15.36 14.64C15.6319 14.3711 15.9751 14.1858 16.3491 14.1061C16.7231 14.0263 17.1121 14.0554 17.47 14.19C18.3773 14.5285 19.3199 14.7634 20.28 14.89C20.7658 14.9585 21.2094 15.2032 21.5265 15.5775C21.8437 15.9518 22.0122 16.4296 22 16.92Z" stroke="var(--primary-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            WhatsApp
+                        </label>
                         <input type="tel" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000" required>
                     </div>
+
                     <div class="form-group">
-                        <label for="email">E-mail *</label>
-                        <input type="email" id="email" name="email" required>
+                        <label for="email">
+                            <svg style="width: 16px; height: 16px; display: inline-block; vertical-align: middle; margin-right: 6px;" viewBox="0 0 24 24" fill="none">
+                                <rect x="3" y="5" width="18" height="14" rx="2" stroke="var(--primary-color)" stroke-width="2"/>
+                                <path d="M3 7L12 13L21 7" stroke="var(--primary-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            E-mail
+                        </label>
+                        <input type="email" id="email" name="email" placeholder="seu@email.com" required>
                     </div>
+
                     <div class="form-group">
-                        <label for="empresa">Empresa/Negócio *</label>
-                        <input type="text" id="empresa" name="empresa" required>
+                        <label for="empresa">
+                            <svg style="width: 16px; height: 16px; display: inline-block; vertical-align: middle; margin-right: 6px;" viewBox="0 0 24 24" fill="none">
+                                <rect x="4" y="2" width="16" height="20" rx="2" stroke="var(--primary-color)" stroke-width="2"/>
+                                <path d="M9 6H15M9 10H15M9 14H15M9 18H15" stroke="var(--primary-color)" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            Empresa/Negócio
+                        </label>
+                        <input type="text" id="empresa" name="empresa" placeholder="Nome da sua empresa" required>
                     </div>
-                    <button type="submit" class="btn-submit">Quero automatizar meu WhatsApp</button>
+
+                    <button type="submit" class="btn-submit">
+                        <svg style="width: 20px; height: 20px; display: inline-block; margin-right: 8px;" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                        Enviar mensagem no WhatsApp
+                    </button>
+                    
+                    <p class="form-security">
+                        <svg style="width: 16px; height: 16px; display: inline-block; vertical-align: middle; margin-right: 4px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="5" y="11" width="14" height="10" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M7 11V7C7 5.67392 7.52678 4.40215 8.46447 3.46447C9.40215 2.52678 10.6739 2 12 2C13.3261 2 14.5979 2.52678 15.5355 3.46447C16.4732 4.40215 17 5.67392 17 7V11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        Seus dados estão 100% seguros conosco
+                    </p>
                 </form>
             </div>
-        </div>
-    </section>
-
-    <!-- Demonstração -->
-    <section class="demonstracao" id="demonstracao">
-        <div class="container">
-            <h2>Agende sua demonstração gratuita</h2>
-            <p>Veja tudo funcionando na prática e tire todas as suas dúvidas!</p>
-            <div class="calendario-placeholder">
-                <h3 style="color: #0066cc; margin-bottom: 20px;">📅 Escolha o melhor horário para você</h3>
-                <p style="color: #666; margin-bottom: 30px;">Integre aqui seu sistema de agendamento (Calendly, Google Calendar, etc.)</p>
-                <a href="#" class="btn btn-primary">Agendar Agora</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Urgência -->
-    <section class="urgencia">
-        <div class="container">
-            <h2>⚠️ Cada minuto conta!</h2>
-            <p>Cada cliente que você não responde a tempo é uma venda perdida. Não perca mais oportunidades – seu concorrente pode estar respondendo primeiro.</p>
-            <a href="#formulario" class="btn btn-primary" style="font-size: 1.2em;">QUERO COMEÇAR AGORA</a>
         </div>
     </section>
 
@@ -610,34 +973,47 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Sobre Nós</h3>
+                    <h3>Sobre</h3>
                     <p>Transformamos seu WhatsApp em uma máquina de vendas com inteligência artificial de última geração.</p>
                 </div>
+
                 <div class="footer-section">
                     <h3>Contato</h3>
                     <ul>
-                        <li>📱 WhatsApp: (31) 93618-2619</li>
-                        <li>📧 Email: contato@seusite.com</li>
+                        <li>
+                            <svg style="width: 16px; height: 16px; display: inline-block; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                            (31) 93618-2619
+                        </li>
                     </ul>
                 </div>
+
                 <div class="footer-section">
                     <h3>Links Rápidos</h3>
                     <ul>
-                        <li><a href="#formulario">Contratar Agora</a></li>
-                        <li><a href="#demonstracao">Agendar Demonstração</a></li>
-                        <li><a href="#">Política de Privacidade</a></li>
-                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#depoimentos">Depoimentos</a></li>
+                        <li><a href="#vantagens">Vantagens</a></li>
+                        <li><a href="#formulario">Agendamento</a></li>
                     </ul>
                 </div>
             </div>
+
             <div class="footer-bottom">
                 <p>&copy; 2025 Automação WhatsApp IA. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5531936182619?text=Ol%C3%A1!%20Vim%20do%20site%20e%20quero%20saber%20mais%20sobre%20a%20automa%C3%A7%C3%A3o%20do%20WhatsApp%20com%20IA!" target="_blank" class="whatsapp-float" title="Fale conosco no WhatsApp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
     <script>
-        // Smooth scroll para links internos
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -651,28 +1027,77 @@
             });
         });
 
-        // Manipulação do formulário
+        // Form handling - ENVIA DIRETO PARA WHATSAPP
         document.getElementById('leadForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const formData = {
-                nome: document.getElementById('nome').value,
-                whatsapp: document.getElementById('whatsapp').value,
-                email: document.getElementById('email').value,
-                empresa: document.getElementById('empresa').value
-            };
+            const submitBtn = this.querySelector('.btn-submit');
+            const originalHTML = submitBtn.innerHTML;
             
-            alert('Obrigado pelo interesse! Em breve entraremos em contato.\n\n' + 
-                  'Dados recebidos:\n' + 
-                  'Nome: ' + formData.nome + '\n' +
-                  'WhatsApp: ' + formData.whatsapp + '\n' +
-                  'Email: ' + formData.email + '\n' +
-                  'Empresa: ' + formData.empresa);
+            // Captura dados
+            const nome = document.getElementById('nome').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            const email = document.getElementById('email').value;
+            const empresa = document.getElementById('empresa').value;
             
-            this.reset();
+            // Validação básica
+            if (!nome || !whatsapp || !email || !empresa) {
+                alert('Por favor, preencha todos os campos!');
+                return;
+            }
+            
+            // Desabilita botão
+            submitBtn.innerHTML = 'Abrindo WhatsApp...';
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.7';
+            
+            // Salva na planilha (background)
+            const agora = new Date();
+            const dataHora = agora.toLocaleDateString('pt-BR') + ' ' + agora.toLocaleTimeString('pt-BR');
+            
+            fetch('https://sheetdb.io/api/v1/xifbx1ripb867', {
+                method: 'POST',
+                mode: 'cors',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    data: [{
+                        data: dataHora,
+                        nome: nome,
+                        whatsapp: whatsapp,
+                        email: email,
+                        empresa: empresa
+                    }]
+                })
+            }).catch(error => {
+                console.log('Erro ao salvar:', error);
+            });
+            
+            // Monta mensagem WhatsApp
+            const msg = 'Ola! Tenho interesse na automacao do WhatsApp com IA.\n\n' +
+                        'Nome: ' + nome + '\n' +
+                        'WhatsApp: ' + whatsapp + '\n' +
+                        'Email: ' + email + '\n' +
+                        'Empresa: ' + empresa + '\n\n' +
+                        'Gostaria de saber mais informacoes e agendar uma demonstracao!';
+            
+            const url = 'https://wa.me/5531936182619?text=' + encodeURIComponent(msg);
+            
+            // Abre WhatsApp
+            setTimeout(function() {
+                window.open(url, '_blank');
+                
+                // Reseta
+                document.getElementById('leadForm').reset();
+                submitBtn.innerHTML = originalHTML;
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+            }, 500);
         });
 
-        // Máscara para WhatsApp
+        // Phone mask
         document.getElementById('whatsapp').addEventListener('input', function(e) {
             let value = e.target.value.replace(/\D/g, '');
             if (value.length > 11) value = value.slice(0, 11);
